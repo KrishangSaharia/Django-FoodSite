@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FoodSite</title>
+</head>
+<body>
+	{%if cartitems %}
+	{% for item in cartitems%}
+
+		Name:{{item.item.name}}<br>
+		Price:{{item.item.price}<br>
+		Quantity:{{item.quantity}}<br>
+        <a href="">+</a>
+        <a href="">-</a>
+        
+		<hr><hr>
+
+	{% endfor %}
+    <a href="checkout/">Proceed To CheckOut</a>
+	{%else%}
+
+		Your Cart is Empty<br>
+		Click <a href="{% url 'home:main' %}">Here</a> To go to MainPage
+
+
+	{% endif%}
+
+</body>
+</html>:

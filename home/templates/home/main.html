@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>FoodSite</title>
+    </head>
+    <body>
+        {% if not authenticated_user%}
+        <a href="/accounts/login">LOGIN</a><br>
+        <a href="/accounts/login">SIGNUP </a><br>
+        {% else%}
+        <a href="/accounts/logout">LOGOUT</a><br>
+        <a href="/transaction/view">View Your Past Transactions</a><br>
+        {% endif %}
+        <a href="{% url 'mycart:view_cart'%}">View Your Cart</a><br>
+        Category:
+        <a href="{% url 'home:main' 'Italian'%}">Italian</a>
+        <a href="{% url 'home:main' 'Mexican'%}">Mexican</a>
+        <a href="{% url 'home:main' 'Chinese'%}">Chinese</a>
+        <a href="{% url 'home:main' 'North Indian'%}">North Indian</a>
+        <a href="{% url 'home:main' 'South Indian'%}">South Indian</a>
+        <a href="{% url 'home:main' 'Combo'%}">Combos</a>
+        <a href="{% url 'home:main' %}">All</a><br>
+        <hr><hr>
+        Showing<strong> {{item_type}}</strong>Items:<br><hr>
+        {% if items %}
+        {% for item in items %}
+        <img src="{{item.photo.url}}" alt="Image of {{item.name}}" width="200",height="200"><br>
+            Name: {{item.name}}<br>
+            Price: {{item.price}}<br>
+            <a href="/mycart/add/{{item.id}}">Add To Cart</a><br>
+
+            <hr>
+
+        {%endfor%}
+        *****THE END****
+        {% endif %}
+    </body>
+</html>
+

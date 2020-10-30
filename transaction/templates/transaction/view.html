@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        
+        {% for transaction in transactions %}
+            Date Of Order:{{transaction.date_created}}<br>
+            Order TOTAL:{{transaction.total}}<br>
+            <a href="/transaction/{{transaction.id}}/feedback">Submit your Feedback</a>
+            <hr><hr>
+            
+        {% endfor %}
+    </body>
+</html>
+

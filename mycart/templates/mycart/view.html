@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>foodsite</title>
+    </head>
+    <body>
+        
+
+
+        {%if cartitems %}
+	    {% for item in cartitems%}
+
+		Name:{{item.item.name}}<br>
+        Price:{{item.item.price}}<br>
+		Quantity:{{item.quantity}}<br>
+		<hr><hr>
+
+	    {% endfor %}
+        TOTAL DELIVERY TIME:{{deliverytime}}<br>
+        ORDER TOTAL : {{ordertotal}}<br>
+    
+    
+        <a  href="/transaction/new">CONFIRM ORDER</a>
+	    {%else%}
+
+		Your Cart is Empty<br>
+		Click <a href="{% url 'home:main' %}">Here</a> To go to MainPage
+
+
+	    {% endif%}
+
+
+        
+    </body>
+</html>
+
